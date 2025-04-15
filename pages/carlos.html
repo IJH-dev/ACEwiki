@@ -8,8 +8,9 @@
     </head>
 
     <body>
-        <nav>
-            <ul class="navbar">
+        <nav class="modern-nav">
+            <div class="logo">ACEwiki</div>
+            <ul>
                 <li><a href="../index.html">Home</a></li>
                 <li class="dropdown">
                     <a href="#">Members ▾</a>
@@ -21,25 +22,30 @@
                     </ul>
                 </li>
                 <li><a href="about.html">About</a></li>
+                <li class="dark-mode-toggle">
+                    <label class="switch">
+                        <input type="checkbox" id="darkModeToggle">
+                        <span class="slider round"></span>
+                    </label>
+                </li>
             </ul>
         </nav>
 
         <div class="content">
             <h2>Carlos's ACEwiki</h2>
      
-            <br>   
             <div class="infobox">
                 <img src="../images/carlos.jpg" alt="This should explain it all" width="100%" height="auto">
-                <br>
                     <a href="https://www.twitch.tv/ihateratss" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     class="twitch-button">
+                    <span class="twitch-inner">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Twitch_Glitch_Logo_Purple.svg" alt="Twitch logo"
                     style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px; filter: drop-shadow(0 0 1px white) drop-shadow(0 0 1px white); border: 0px;">
                         Watch ihateratss on Twitch               
                     </a>
-                    <p>This should explain it all</p>
+                    <p>Played Right Couch for the 2024 World Champion Dodgers.</p>
                 <div class="infobox-text">
                 </div>
                     <table>
@@ -113,11 +119,27 @@
                 <li>Once unmuted only to eat chips, then left again</li>
             </ul>
         </div>
+        <footer>
+            <strong>
+                <em>&copy;ACE Up!</em>  
+            </strong>
+        </footer>
+    
+    <script>
+        const toggle = document.getElementById('darkModeToggle');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        // Apply preferred theme on load
+        if (prefersDark) {
+            document.body.classList.add('dark');
+            toggle.checked = true;
+        }
+
+        toggle.addEventListener('change', () => {
+            document.body.classList.toggle('dark', toggle.checked);
+        });
+    </script>
+    
     </body>
 
-    <footer>
-        <strong>
-            <em>&copy;ACE Up!</em>  
-        </strong>
-    </footer>
 </html>

@@ -8,8 +8,9 @@
     </head>
 
     <body>
-        <nav>
-            <ul class="navbar">
+        <nav class="modern-nav">
+            <div class="logo">ACEwiki</div>
+            <ul>
                 <li><a href="../index.html">Home</a></li>
                 <li class="dropdown">
                     <a href="#">Members ▾</a>
@@ -21,6 +22,12 @@
                     </ul>
                 </li>
                 <li><a href="about.html">About</a></li>
+                <li class="dark-mode-toggle">
+                    <label class="switch">
+                        <input type="checkbox" id="darkModeToggle">
+                        <span class="slider round"></span>
+                    </label>
+                </li>
             </ul>
         </nav>
 
@@ -30,5 +37,21 @@
         <p>This website is dedicated to the ACE Family. To those who have tirelessly grinded and stared endless at their computer screens
              .</p>
     </div>
+
+    <script>
+        const toggle = document.getElementById('darkModeToggle');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        // Apply preferred theme on load
+        if (prefersDark) {
+            document.body.classList.add('dark');
+            toggle.checked = true;
+        }
+
+        toggle.addEventListener('change', () => {
+            document.body.classList.toggle('dark', toggle.checked);
+        });
+    </script>
+
     </body>
 </html>

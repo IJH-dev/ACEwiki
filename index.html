@@ -1,40 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>My First Web Page</title>
-        <link rel="stylesheet" href="/pages/styles.css">
-    </head>
 
-    <!-- This is the start of the ACEwiki -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACE Directory</title>
+    <link rel="stylesheet" href="/pages/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
 <body>
-    <nav>
-        <ul class="navbar">
+    <nav class="modern-nav">
+        <div class="logo">ACEwiki</div>
+        <ul>
             <li><a href="index.html">Home</a></li>
             <li class="dropdown">
                 <a href="#">Members ▾</a>
                 <ul class="dropdown-content">
-                    <li><a href="./pages/jowe.html">Jowe</a></li>
-                    <li><a href="./pages/bert.html">Bert</a></li>
-                    <li><a href="./pages/carlos.html">Carlos</a></li>
-                    <li><a href="./pages/jesse.html">Jesse</a></li>
+                    <li><a href="/pages/jowe.html">Jowe</a></li>
+                    <li><a href="/pages/bert.html">Bert</a></li>
+                    <li><a href="/pages/carlos.html">Carlos</a></li>
+                    <li><a href="/pages/jesse.html">Jesse</a></li>
                 </ul>
             </li>
-            <li><a href="./pages/about.html">About</a></li>
+            <li><a href="/pages/about.html">About</a></li>
+            <li class="dark-mode-toggle">
+                <label class="switch">
+                    <input type="checkbox" id="darkModeToggle">
+                    <span class="slider round"></span>
+                </label>
+            </li>
         </ul>
     </nav>
 
-    <div class="home-content">
+    <div class="content">
         <h1>Welcome to The ACE Directory</h1>
-        <h2>A wiki-style site dedicated to the many personalities of the ACE Family.</h2>
-        <p>Explore each member's page to discover their info, quotes, and legendary moments.</p>
+        <h2>A modern wiki-style site for the ACE Family.</h2>
+        <p>
+            Dive into each member’s page to explore their lore, Discord antics, infamous quotes, and questionable
+            decisions.
+            From “Bing Chilling” to 3-day Apex binges, this is the definitive archive of the ACE universe.
+        </p>
     </div>
-</body>
 
     <footer>
-        <strong>
-            <em>&copy;ACE Up!</em> 
-        </strong>
+        <strong><em>&copy; ACE Up!</em></strong>
     </footer>
+
+    <script>
+        const toggle = document.getElementById('darkModeToggle');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        // Apply preferred theme on load
+        if (prefersDark) {
+            document.body.classList.add('dark');
+            toggle.checked = true;
+        }
+
+        toggle.addEventListener('change', () => {
+            document.body.classList.toggle('dark', toggle.checked);
+        });
+    </script>
+
+</body>
+
 </html>
