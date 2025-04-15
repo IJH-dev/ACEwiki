@@ -5,6 +5,7 @@ body {
     margin: 0;
     background-color: #f9f9f9;
     color: #222;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 /* Modern Navbar */
@@ -19,12 +20,15 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
 .modern-nav .logo {
     font-weight: 600;
     font-size: 20px;
-    color: #000;
+    color: #c0392b;
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
 .modern-nav ul {
@@ -48,12 +52,12 @@ body {
     display: block;
     width: 100%;
     box-sizing: border-box;
-    transition: background 0.2s;
+    transition: background 0.2s, color 0.2s;
 }
 
 .modern-nav a:hover {
     background-color: #f1f1f1;
-    color: #6441a5;
+    color: #c0392b;
 }
 
 /* Positioning for dropdown parent */
@@ -75,15 +79,14 @@ body {
     padding: 0;
     z-index: 999;
     min-width: 160px;
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
-/* Force each item to stack vertically */
 .dropdown-content li {
     display: block;
     width: 100%;
 }
 
-/* Show dropdown only when hovering over the entire <li> */
 .dropdown:hover .dropdown-content {
     display: flex;
 }
@@ -95,24 +98,31 @@ body {
     position: absolute;
 }
 
-/* Twitch Button */
+/* Twitch Button (kept purple) */
 .twitch-button {
+    display: inline-block;
     background: linear-gradient(to right, #9147ff, #6441a5);
-    color: white;
+    color: white !important;
     padding: 10px 18px;
     border-radius: 30px;
     text-decoration: none;
     font-weight: bold;
     transition: all 0.3s ease;
     box-shadow: 0 0 10px rgba(100, 65, 165, 0.3);
-    display: inline-block;
 }
 
-.twitch-button img {
+.twitch-inner {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: white !important;
+}
+
+.twitch-inner img {
     width: 20px;
     height: 20px;
-    display: inline-block;
-    vertical-align: middle;
+    display: block;
 }
 
 .twitch-button:hover {
@@ -120,18 +130,55 @@ body {
     transform: scale(1.03);
 }
 
-/* New inner container for alignment */
-.twitch-inner {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+/* Dark Mode Toggle - Horizontal */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 24px;
 }
 
-/* Logo image */
-.twitch-inner img {
-    width: 20px;
-    height: 20px;
-    display: block;
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 24px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: #c0392b;
+}
+
+input:checked+.slider:before {
+    transform: translateX(22px);
+}
+
+.dark-mode-toggle {
+    display: flex;
+    align-items: center;
 }
 
 /* Content Layout */
@@ -145,6 +192,7 @@ body {
 .content h2,
 .content h3 {
     color: #222;
+    transition: color 0.3s;
 }
 
 .content h3 {
@@ -164,6 +212,7 @@ body {
     margin-left: 30px;
     margin-bottom: 30px;
     text-align: center;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .infobox img {
@@ -183,16 +232,19 @@ body {
     padding: 4px 0;
     color: #666;
     width: 40%;
+    transition: color 0.3s;
 }
 
 .infobox td {
     padding: 4px 0;
     color: #222;
+    transition: color 0.3s;
 }
 
 /* Utility */
 a {
-    color: #6441a5;
+    color: #c0392b;
+    transition: color 0.3s;
 }
 
 footer {
@@ -200,55 +252,10 @@ footer {
     padding: 20px;
     color: #999;
     font-size: 0.9em;
+    transition: color 0.3s;
 }
 
-/* Toggle switch base */
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 46px;
-    height: 24px;
-}
-
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    background-color: #ccc;
-    transition: 0.4s;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 24px;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 18px;
-    width: 18px;
-    left: 3px;
-    bottom: 3px;
-    background-color: white;
-    transition: 0.4s;
-    border-radius: 50%;
-}
-
-input:checked+.slider {
-    background-color: #6441a5;
-}
-
-input:checked+.slider:before {
-    transform: translateX(22px);
-}
-
-/* Dark mode theme styles */
+/* Dark mode styles */
 body.dark {
     background-color: #121212;
     color: #e4e4e4;
@@ -265,13 +272,39 @@ body.dark .modern-nav a {
 
 body.dark .modern-nav a:hover {
     background-color: #333;
-    color: #9147ff;
+    color: #e74c3c;
+}
+
+body.dark .modern-nav .logo {
+    color: #e74c3c;
+}
+
+body.dark .dropdown-content {
+    background-color: #1e1e1e;
+    border-color: #333;
+}
+
+body.dark .dropdown-content a {
+    color: #ddd;
+}
+
+body.dark .dropdown-content a:hover {
+    background-color: #333;
+    color: #ff726f;
 }
 
 body.dark .infobox {
     background-color: #1e1e1e;
     color: #e4e4e4;
     border: 1px solid #333;
+}
+
+body.dark .infobox th {
+    color: #bbb;
+}
+
+body.dark .infobox td {
+    color: #e4e4e4;
 }
 
 body.dark .content h1,
@@ -281,5 +314,72 @@ body.dark .content h3 {
 }
 
 body.dark a {
-    color: #a68eff;
+    color: #ff5e57;
+}
+
+body.dark footer {
+    color: #777;
+}
+
+body.dark .twitch-button,
+body.dark .twitch-inner {
+    color: white !important;
+}
+
+/* Member Tile Cards for Index Page */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+    padding: 0 20px;
+    justify-items: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    max-width: 240px;
+    padding: 10px;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.card img {
+    width: 90%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-top: 16px;
+}
+
+.card h3 {
+    margin: 12px 0;
+    color: #222;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+/* Dark Mode Styling for Cards */
+body.dark .card {
+    background: #1e1e1e;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+}
+
+body.dark .card h3 {
+    color: #fff;
+}
+
+body.dark .card:hover {
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
 }
