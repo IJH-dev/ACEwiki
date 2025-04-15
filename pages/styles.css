@@ -1,0 +1,192 @@
+    footer {
+        margin-top: 50px;
+        font-size: small;
+        text-align: center;
+    }
+
+    nav {
+        background-color: #f8f9fa;
+        border-bottom: 1px solid #ccc;
+        padding: 10px 20px;
+    }
+
+    nav a {
+        margin-right: 15px;
+        text-decoration: none;
+        color: #0645ad; 
+    }
+
+    nav a:hover {
+        text-decoration: underline;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        color: #202122;
+        margin: 0;
+        padding: 0
+    }
+
+    p {
+        padding: 20px;
+    }
+
+    .content {
+        width: 95%;
+        margin: 30px auto;
+        background-color: #ffffff;
+        padding: 20px;
+        border: 1px solid #ddd
+    }
+
+    h2 {
+       border-bottom: 1px solid #ccc;
+       padding-bottom: 5px;}
+    img {
+        max-width: 300px;
+        height: auto;
+        margin: 10px 0;
+    }
+
+    .twitch-link {
+        font-size: 1.1em;
+    }
+
+    .twitch-link a {
+        color:#0645ad
+    }
+
+    .twitch-link a:hover {
+        text-decoration: underline;
+    }
+       
+    .twitch-button {
+        display: inline-flex;
+        background-color: #6441a5;
+        align-items: center;
+        /* Twitch purple */
+        color: white;
+        padding: 10px 16px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+        margin: 10px 0;
+        font-size: 1rem;
+    }
+    
+        
+    .twitch-button:hover {
+        background-color: #4b2c91;
+    }
+
+    .twitch-button img {
+        margin-right: 8px;
+    }    
+
+    .infobox {
+        float: right;
+        width: 300px;
+        margin-left: 20px;
+        margin-bottom: 50px;
+        background-color: #f8f9fa;
+        border: 1px solid #ccc;
+        padding: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+    }
+    
+    .infobox img {
+        width: 100%;
+        height: auto;
+        border: 1px solid #ddd;
+    }
+    
+    .info-text {
+        margin-top: 10px;
+        font-size: 0.9em;
+        color: #333;
+    }
+
+    .infobox table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+        font-size: 0.85em;
+    }
+    
+    .infobox th {
+        text-align: left;
+        font-weight: bold;
+        padding: 4px;
+        vertical-align: top;
+        width: 40%;
+    }
+    
+    .infobox td {
+        padding: 4px;
+        vertical-align: top;
+    }
+
+    .content h3 {
+        margin-top: 30px;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 4px;
+        font-size: 1.2em;
+    }
+
+    .navbar {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 20px;
+    }
+    
+    .navbar li {
+        position: relative;
+    }
+    
+    .navbar a {
+        text-decoration: none;
+        color: #0645ad;
+        font-weight: bold;
+        padding: 6px 10px;
+        }
+    
+    .navbar a:hover {
+        text-decoration: underline;
+    }
+    
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #ffffff;
+        border: 1px solid #ccc;
+        z-index: 1;
+        min-width: 160px;
+    }
+    
+    .dropdown-content li {
+        display: block;
+    }
+    
+    .dropdown-content a {
+        padding: 10px;
+        display: block;
+    }
+    
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    
+    .home-content {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 0 20px;
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
