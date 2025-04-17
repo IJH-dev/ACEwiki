@@ -131,14 +131,14 @@ body {
 }
 
 /* Dark Mode Toggle - Horizontal */
-.switch {
+.theme-switch {
     position: relative;
     display: inline-block;
-    width: 46px;
-    height: 24px;
+    width: 50px;
+    height: 26px;
 }
 
-.switch input {
+.theme-switch input {
     opacity: 0;
     width: 0;
     height: 0;
@@ -148,12 +148,26 @@ body {
     position: absolute;
     cursor: pointer;
     background-color: #ccc;
-    transition: 0.4s;
-    border-radius: 24px;
+    border-radius: 34px;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    transition: background-color 0.4s;
+}
+
+.slider .icon {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    height: 22px;
+    width: 22px;
+    background: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 22px;
+    font-size: 14px;
+    transition: all 0.4s ease;
 }
 
 .slider:before {
@@ -170,6 +184,10 @@ body {
 
 input:checked+.slider {
     background-color: #c0392b;
+}
+
+input:checked+.slider .icon {
+    transform: translateX(24px);
 }
 
 input:checked+.slider:before {
@@ -382,4 +400,37 @@ body.dark .card h3 {
 
 body.dark .card:hover {
     box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+    .modern-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 20px;
+    }
+
+    .modern-nav ul {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .modern-nav ul li {
+        width: 100%;
+    }
+
+    .modern-nav a {
+        padding: 10px 0;
+        width: 100%;
+    }
+
+    .content {
+        padding: 0 15px;
+    }
+
+    .card-grid {
+        padding: 0 10px;
+    }
 }

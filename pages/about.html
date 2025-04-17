@@ -21,37 +21,64 @@
                         <li><a href="jesse.html">Jesse</a></li>
                     </ul>
                 </li>
+
+
                 <li><a href="about.html">About</a></li>
+
                 <li class="dark-mode-toggle">
-                    <label class="switch">
+                    <label class="theme-switch">
                         <input type="checkbox" id="darkModeToggle">
-                        <span class="slider round"></span>
+                        <span class="slider">
+                            <span class="icon">🌞</span>
+                        </span>
                     </label>
                 </li>
             </ul>
         </nav>
 
     <div class="home-content">
-        <h1>About Page</h1>
-        <h3>Respect the cord.</h3>
-        <p>This website is dedicated to the ACE Family. To those who have tirelessly grinded and stared endless at their computer screens
-             .</p>
+        <h1 style="text-align: center;">About Page</h1>
+        <h2 style="text-align: center;">ACE Family</h2>
+        <p style="text-align: center; font-size: medium;">The ACE Family is a group of friends who play games together, rage, and talk shit. They are known for their humor, camaraderie, and love for gaming.</p>
+
     </div>
 
     <script>
         const toggle = document.getElementById('darkModeToggle');
-        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const icon = document.querySelector('.theme-switch .icon');
 
-        // Apply preferred theme on load
-        if (prefersDark) {
-            document.body.classList.add('dark');
-            toggle.checked = true;
-        }
+            function updateIcon() {
+                if (document.body.classList.contains('dark')) {
+                    icon.textContent = '🌙';
+                } else {
+                    icon.textContent = '🌞';
+                }
+            }
 
-        toggle.addEventListener('change', () => {
-            document.body.classList.toggle('dark', toggle.checked);
-        });
+            // Set preferred theme on load
+            if (prefersDark) {
+                document.body.classList.add('dark');
+                toggle.checked = true;
+            }
+            updateIcon();
+
+            toggle.addEventListener('change', () => {
+                document.body.classList.toggle('dark', toggle.checked);
+                updateIcon();
+            });
     </script>
 
     </body>
+
+<footer>
+    <br>
+    <br>
+    <h3 style="text-align: center;">Respect the cord.</h3>
+    <p style="text-align: center;">This website is dedicated to the ACE Family. To those who have tirelessly grinded and
+        stared endless at their computer screens.</p>
+    <br>
+        <strong><em>&copy; ACE Up!</em></strong>
+    </footer>
+
 </html>

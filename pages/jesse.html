@@ -22,11 +22,15 @@
                         <li><a href="jesse.html">Jesse</a></li>
                     </ul>
                 </li>
+
                 <li><a href="about.html">About</a></li>
+
                 <li class="dark-mode-toggle">
-                    <label class="switch">
+                    <label class="theme-switch">
                         <input type="checkbox" id="darkModeToggle">
-                        <span class="slider round"></span>
+                        <span class="slider">
+                            <span class="icon">🌞</span>
+                        </span>
                     </label>
                 </li>
             </ul>
@@ -121,17 +125,28 @@
 
     <script>
         const toggle = document.getElementById('darkModeToggle');
-        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const icon = document.querySelector('.theme-switch .icon');
 
-        // Apply preferred theme on load
-        if (prefersDark) {
-            document.body.classList.add('dark');
-            toggle.checked = true;
-        }
+            function updateIcon() {
+                if (document.body.classList.contains('dark')) {
+                    icon.textContent = '🌙';
+                } else {
+                    icon.textContent = '🌞';
+                }
+            }
 
-        toggle.addEventListener('change', () => {
-            document.body.classList.toggle('dark', toggle.checked);
-        });
+            // Set preferred theme on load
+            if (prefersDark) {
+                document.body.classList.add('dark');
+                toggle.checked = true;
+            }
+            updateIcon();
+
+            toggle.addEventListener('change', () => {
+                document.body.classList.toggle('dark', toggle.checked);
+                updateIcon();
+            });
     </script>
 
 <footer>
